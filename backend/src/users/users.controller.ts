@@ -1,4 +1,9 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
-@Controller('users')
-export class UsersController {}
+@Controller('/')
+export class UsersController {
+    @Get()
+    getHello(req,res): string {
+        return JSON.stringify({status: true, req: req, res: res});
+    }
+}

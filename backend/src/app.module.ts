@@ -1,24 +1,15 @@
 import { Module } from '@nestjs/common';
-import { RouterModule } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
-
-var routes = [
-  {
-    path: '/',
-    module: AppController,
-  },
-  {
-    path: 'users',
-    module: UsersModule,
-  }
-];
+import { DatabaseModule } from './database/database.module';
+import { LoginModule } from './login/login.module';
 
 @Module({
   imports: [
     UsersModule,
-    RouterModule.register(routes),
+    DatabaseModule,
+    LoginModule,
   ],
   controllers: [AppController],
   providers: [AppService],
